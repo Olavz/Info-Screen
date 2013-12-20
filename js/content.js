@@ -102,7 +102,7 @@ function updateContentBlock(entry) {
 }
 
 function fadeAll() {
-    var panes = ['.front-pane', '.right-pane', '.back-pane', '.right-pane'];
+    var panes = ['.front-pane', '.right-pane', '.back-pane', '.left-pane'];
     $.each(panes, function(key, value) {
        $(value).fadeOut(1000);
     });
