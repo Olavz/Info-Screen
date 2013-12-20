@@ -1,0 +1,176 @@
+@import url(http://fonts.googleapis.com/css?family=Keania+One);
+@import url(http://fonts.googleapis.com/css?family=Fredericka+the+Great);
+@import url(http://fonts.googleapis.com/css?family=Special+Elite);
+@import url(http://fonts.googleapis.com/css?family=Crete+Round);
+@import url(http://fonts.googleapis.com/css?family=Oxygen);
+
+body{
+
+    background-color: #FFF;
+    font-family: Calibri;
+}
+
+h1 {
+    /*font-family: 'Keania One', cursive;*/
+    font-family: 'Fredericka the Great', cursive;
+    font-size:50px;
+    font-weight:400;
+}
+
+/*************** STANDARD CUBE ***************/
+.cube-wrap {
+    -webkit-perspective: 800px;
+    -webkit-perspective-origin: 50% 100px;
+
+    -moz-perspective: 800px;
+    -moz-perspective-origin: 50% 100px;
+
+    -ms-perspective: 800px;
+    -ms-perspective-origin: 50% 100px;
+
+    perspective: 800px;
+    perspective-origin: 50% 100px;
+}
+
+.cube {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+
+    -webkit-transition: -webkit-transform 1s linear;
+
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.cube .side {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.contentBox, .contentBoxTwo, .contentBoxThree, .contentBoxFour {
+
+}
+
+/*************** DEPTH CUBE ***************/
+.depth div.back-pane {
+    -webkit-transform: translateZ(-800px) rotateY(180deg);
+    -moz-transform: translateZ(-800px) rotateY(180deg);
+    -ms-transform: translateZ(-800px) rotateY(180deg);
+    transform: translateZ(-800px) rotateY(180deg);
+}
+.depth div.right-pane {
+    -webkit-transform:rotateY(-270deg) translateX(800px);
+    -webkit-transform-origin: top right;
+
+    -moz-transform:rotateY(-270deg) translateX(800px);
+    -moz-transform-origin: top right;
+
+    -ms-transform:rotateY(-270deg) translateX(800px);
+    -ms-transform-origin: top right;
+
+    transform:rotateY(-270deg) translateX(800px);
+    transform-origin: top right;
+}
+.depth div.left-pane {
+    -webkit-transform:rotateY(270deg) translateX(-800px);
+    -webkit-transform-origin: center left;
+
+    -moz-transform:rotateY(270deg) translateX(-800px);
+    -moz-transform-origin: center left;
+
+    -ms-transform:rotateY(270deg) translateX(-800px);
+    -ms-transform-origin: center left;
+
+    transform:rotateY(270deg) translateX(-800px);
+    transform-origin: center left;
+}
+.depth div.top-pane {
+    -webkit-transform:rotateX(-90deg) translateY(0px);
+    -webkit-transform-origin: top center;
+
+    -moz-transform:rotateX(-90deg) translateY(0px);
+    -moz-transform-origin: top center;
+
+    -ms-transform:rotateX(-90deg) translateY(0px);
+    -ms-transform-origin: top center;
+
+    transform:rotateX(-90deg) translateY(0px);
+    transform-origin: top center;
+}
+.depth div.bottom-pane {
+    -webkit-transform:rotateX(90deg) translateY(0px);
+    -webkit-transform-origin: bottom center;
+
+    -moz-transform:rotateX(90deg) translateY(0px);
+    -moz-transform-origin: bottom center;
+
+    -ms-transform:rotateX(90deg) translateY(0px);
+    -ms-transform-origin: bottom center;
+
+    transform:rotateX(90deg) translateY(0px);
+    transform-origin: bottom center;
+}
+.depth div.front-pane {
+    -webkit-transform: translateZ(0px);
+    -moz-transform: translateZ(0px);
+    -ms-transform: translateZ(0px);
+    transform: translateZ(0px);
+}
+
+/*************** FLAT SPINNING CUBE ***************/
+.cube-wrap.flat {
+    -webkit-perspective: none;
+    -webkit-perspective-origin: 0 0;
+
+    -moz-perspective: none;
+    -moz-perspective-origin: 0 0;
+
+    -ms-perspective: none;
+    -ms-perspective-origin: 0 0;
+
+    perspective: none;
+    perspective-origin: 0 0;
+}
+
+
+header.heading {
+    padding: 5px;
+}
+
+.loadbar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: red;
+    height: auto;
+}
+
+
+.navigation {
+    color: #333;
+    font-family: 'Special Elite', cursive;
+    font-weight:400;
+    font-size: 28px;
+}
+
+ul.navigation{
+    padding:0;
+    width:100%;
+    border-bottom: 1px solid #f90;
+}
+ul.navigation li {
+    display:inline;
+    margin:0px 0px 10px 0px;
+    padding:2px 20px 0px 20px;
+}
+
+ul.navigation li.selected {
+    border-bottom:5px solid #f90;
+}
+
+

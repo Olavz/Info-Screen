@@ -1,0 +1,16 @@
+{
+    "name": "A video from YouTube?",
+    "folder": "youmovie",
+    "enabled": true,
+    "order": 2,
+    "airTime": 10,
+    "screenSettings": {
+        "showHeader": true,
+        "showFooter": true
+    },
+    "scripts": [
+        "swfobject.js",
+        "youmovie.js"
+    ]
+
+}

@@ -1,0 +1,15 @@
+{
+    "name": "News Ticker",
+    "folder": "newsticker",
+    "enabled": true,
+    "order": 1,
+    "airTime": 10,
+    "screenSettings": {
+        "showHeader": true,
+        "showFooter": true
+    },
+    "scripts": [
+        "test.js"
+    ]
+
+}

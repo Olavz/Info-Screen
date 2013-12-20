@@ -1,0 +1,14 @@
+{
+    "name": "Amazing Image Slider!",
+    "folder": "imageslider",
+    "enabled": true,
+    "order": 3,
+    "airTime": 5,
+    "screenSettings": {
+        "showHeader": true,
+        "showFooter": true
+    },
+    "scripts": [
+        "slide.js"
+    ]
+}
