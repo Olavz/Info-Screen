@@ -1,0 +1,15 @@
+{
+    "name": "Website",
+    "folder": "website",
+    "enabled": true,
+    "order": 2,
+    "airTime": 10,
+    "screenSettings": {
+        "showHeader": false,
+        "showFooter": true
+    },
+    "scripts": [
+
+    ]
+
+}
