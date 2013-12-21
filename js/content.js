@@ -90,6 +90,7 @@ function updateContentBlock(entry) {
     }
 
     fadeAll();
+    setLoadBar(entry);
     $(currentBox).fadeOut(300, function() {
         $(currentSlide).fadeIn();
         $(currentBox).load(pluginUrl, function() {
@@ -169,7 +170,7 @@ function gotoNextModule() {
 }
 
 function updateDuration(duration) {
-    modifiedDuration = duration;
+    modifiedDuration = Math.ceil(duration);
 }
 
 window.addListner = function(ref, folder) {
@@ -255,4 +256,43 @@ function updateCubeBounds() {
         "transform-origin" : "center left"
     });
 
+}
+
+function setLoadBar(entry) {
+    var duration = entry.airTime * 1000;
+    var flagNewDuration = false;
+
+    var animationCss = {"width":"100%"};
+    $('.loadbar').animate(animationCss, {
+        duration: duration,
+        specialEasing: {
+            width: "linear"
+        },
+        step: function(now, fx){
+            if(modifiedDuration > 0 && flagNewDuration == false) {
+                duration = modifiedDuration * 1000;
+                flagNewDuration = true;
+                $(".loadbar").stop();
+                var percentageDone = (fx.now - fx.start) / (fx.end - fx.start)
+                var durationDone = fx.options.duration * percentageDone;
+                var newDuration = duration - durationDone;
+                if (newDuration < 0)
+                {
+                    newDuration = 0;
+                }
+                $(".loadbar").animate(animationCss, { duration: newDuration,
+                    specialEasing: {
+                    width: "linear"
+                },
+                    complete: funcComplete});
+
+            }
+        },
+        complete : funcComplete
+    });
+
+    function funcComplete() {
+        flagNewDuration = false;
+        $(".loadbar").css({"width":"0%"});
+    }
 }
