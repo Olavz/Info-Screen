@@ -145,9 +145,10 @@ header.heading {
 .loadbar {
     position: absolute;
     bottom: 0;
-    width: 100%;
-    background: red;
-    height: auto;
+    left: 0;
+    width: 0%;
+    background: #f90;
+    height: 10px;
 }
 
 

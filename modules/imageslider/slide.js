@@ -26,13 +26,13 @@
 
     function startFunction() {
         rollVbRoller(0);
-        updateDuration(2*2); /* Update duration to 2 seconds times number of images */
+        SCREEN.updateDuration(2*2); /* Update duration to 2 seconds times number of images */
     }
 
     function stopFunction() {
         clearTimeout(currentTimeout);
     }
 
-    window.addListner(binding, "imageslider");
+    SCREEN.addListner(binding, "imageslider");
 
 })(window);

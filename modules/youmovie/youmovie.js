@@ -1,5 +1,7 @@
 (function(window) {
 
+
+
     var binding =  {
         start : startFunction,
         stop : stopFunction
@@ -17,7 +19,7 @@
     function stopFunction() {
     }
 
-    window.addListner(binding, "youmovie");
+    SCREEN.addListner(binding, "youmovie");
 
 })(window);
 
@@ -30,12 +32,12 @@ function onYouTubePlayerReady(playerId) {
 
 function onytplayerStateChange(newState) {
     ytplayer = document.getElementById("myytplayer");
-    updateCubeBounds();
+    SCREEN.updateCubeBounds();
     if(newState == 0) {
         console.log("newState: > GO TO NEXT");
     }
     if(newState == 1) {
-        updateDuration((ytplayer.getDuration() - ytplayer.getCurrentTime())+1);
+        SCREEN.updateDuration((ytplayer.getDuration() - ytplayer.getCurrentTime())+1);
         console.log("Updating duration to: " + (ytplayer.getDuration() - ytplayer.getCurrentTime())+1);
     }
 }

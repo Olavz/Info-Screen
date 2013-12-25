@@ -31,6 +31,6 @@
         clearTimeout(currentTimeout);
     }
 
-    window.addListner(binding, "newsticker");
+    SCREEN.addListner(binding, "newsticker");
 
 })(window);
