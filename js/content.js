@@ -7,9 +7,12 @@ var SCREEN = (function() {
     var loadedScripts = new Array();
 
     $(document).ready(function() {
+        // Hide scrollbars
+        $("body").css("overflow", "hidden");
 
         $.getJSON( "datafeeds/getModules.php", function( data ) {
             $.each( data, function( key, entry ) {
+                // Default settings for module is set in getModules.php
                 entries.push(entry);
             });
             entries.sort(compareEntries);
@@ -20,14 +23,16 @@ var SCREEN = (function() {
             updateDisplayInfo(entries[currentModule]);
             loadScripts();
             updateLoop(); // Start update loop
+            updateCubeBounds();
 
         });
 
         $(".cube").css({
             "-webkit-transform": "translateZ(-"+(window.innerWidth-10)/2+"px)"
-        })
-        updateCubeBounds();
+        });
+
     });
+
 
     /* Comparable for sorting entries after priority order */
     function compareEntries(a, b) {
@@ -46,6 +51,8 @@ var SCREEN = (function() {
 
         if((tickerSeconds >= tickerMaxCount || loadNextModule == true) && entries.length > 1) {
             currentModule += 1;         // GoTo next module
+            modifiedDuration = -1;      // Reset modified duration
+
             if(currentModule >= entries.length) {
                 currentModule = 0;
             }
@@ -57,7 +64,7 @@ var SCREEN = (function() {
             cubeRotateTo(currentModule % 4);
 
             tickerSeconds = 0;          // Reset ticker
-            modifiedDuration = -1;
+
             loadNextModule = false;
         }
 
@@ -91,14 +98,13 @@ var SCREEN = (function() {
         }
 
         fadeAll();
+
         setLoadBar(entry);
         $(currentBox).fadeOut(300, function() {
             $(currentSlide).fadeIn();
             $(currentBox).load(pluginUrl, function() {
                 $(currentBox).fadeIn();
-                if(entry.scripts != null) {
-                    manageScripts(entry);
-                }
+                manageScripts(entry);
             });
         });
     }
@@ -143,10 +149,16 @@ var SCREEN = (function() {
 
         if(entry.screenSettings.showHeader) {
             $(".heading").slideDown();
+
         }
 
         if(!entry.screenSettings.showHeader) {
-            $(".heading").slideUp();
+            $(".heading").slideUp({
+                complete: function() {
+                    updateCubeBounds();
+                }
+            });
+
         }
     }
 
@@ -201,8 +213,16 @@ var SCREEN = (function() {
     }
 
     function updateCubeBounds() {
-        var headerHight = 150;
-        var footerHight = 0;
+        var headerHeight = $(".heading").height();
+        var progressHeight = $(".loadbar").height();
+        var footerHight = 0; // No footer yet!
+
+        var screenSettings = entries[currentModule].screenSettings;
+        if(screenSettings.showHeader != null && screenSettings.showHeader == true) {
+            headerHeight = $(".heading").height();
+        } else {
+            headerHeight = (screenSettings.showProgress ? progressHeight : '0');
+        }
 
         var width = window.innerWidth - 10;
         halfWidth = width / 2;
@@ -213,7 +233,7 @@ var SCREEN = (function() {
         });
         $(".cube div").css({
             "width": width,
-            "height": (height - headerHight - footerHight)
+            "height": (height - headerHeight - footerHight)
         });
         $(".depth div.back-pane").css({
             "-webkit-transform": "translateZ(-"+halfWidth+"px) rotateY(180deg)",
@@ -298,13 +318,11 @@ var SCREEN = (function() {
         }
     }
 
-    var binding = {
-
-    }
 
     return {
         gotoNextModule : gotoNextModule,
         updateDuration : updateDuration,
-        addListner : addListner
+        addListner : addListner,
+        updateCubeBounds: updateCubeBounds
     };
 })(window);

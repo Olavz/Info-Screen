@@ -12,8 +12,6 @@
         var atts = { id: "myytplayer" };
         swfobject.embedSWF("http://www.youtube.com/v/7CVtTOpgSyY?enablejsapi=1&playerapiid=ytplayer&version=3",
             "ytapiplayer", "100%", "100%", "8", null, null, params, atts);
-
-
     }
 
     function stopFunction() {
@@ -34,10 +32,9 @@ function onytplayerStateChange(newState) {
     ytplayer = document.getElementById("myytplayer");
     SCREEN.updateCubeBounds();
     if(newState == 0) {
-        console.log("newState: > GO TO NEXT");
+        //console.log("newState: > GO TO NEXT");
     }
     if(newState == 1) {
         SCREEN.updateDuration((ytplayer.getDuration() - ytplayer.getCurrentTime())+1);
-        console.log("Updating duration to: " + (ytplayer.getDuration() - ytplayer.getCurrentTime())+1);
     }
 }

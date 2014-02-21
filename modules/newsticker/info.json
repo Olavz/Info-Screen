@@ -1,8 +1,8 @@
 {
-    "name": "News Ticker",
+    "name": "Nyheter",
     "folder": "newsticker",
     "enabled": true,
-    "order": 1,
+    "order": 5,
     "airTime": 10,
     "screenSettings": {
         "showHeader": true,

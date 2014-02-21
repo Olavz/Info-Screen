@@ -18,7 +18,7 @@ h1 {
 }
 
 /*************** STANDARD CUBE ***************/
-.cube-wrap {
+.contentSlider {
     -webkit-perspective: 800px;
     -webkit-perspective-origin: 50% 100px;
 
@@ -123,7 +123,7 @@ h1 {
 }
 
 /*************** FLAT SPINNING CUBE ***************/
-.cube-wrap.flat {
+.contentSlider.flat {
     -webkit-perspective: none;
     -webkit-perspective-origin: 0 0;
 

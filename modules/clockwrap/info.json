@@ -1,0 +1,10 @@
+{
+    "name": "Klokke",
+    "folder": "clockwrap",
+    "enabled": true,
+    "order": 1,
+    "airTime": 20,
+    "screenSettings": {
+        "showHeader" : true
+    }
+}

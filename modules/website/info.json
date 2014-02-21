@@ -1,13 +1,9 @@
 {
-    "name": "Website",
+    "name": "Enigma",
     "folder": "website",
-    "enabled": true,
-    "order": 2,
-    "airTime": 10,
-    "screenSettings": {
-        "showHeader": false,
-        "showFooter": true
-    },
+    "enabled": false,
+    "order": 20,
+    "airTime": 7,
     "scripts": [
 
     ]
