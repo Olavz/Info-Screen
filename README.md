@@ -34,8 +34,8 @@ The info.json file has three required fields (name, folder, enabled), the rest o
 * `order` If multiple plugins, they are sorted by the order descending first
 * `airTime` Number of seconds used to show the plugin on screen.
 * `screenSettings` Used to describe screen requirements
-* * `showHeader` Show or hide the header
-* * `showFooter` Show or hide the footer
+  *  `showHeader` Show or hide the header
+  *  `showFooter` Show or hide the footer
 * `scripts` List of JavaScripts that will be loaded on run.
 	
 ###JavaScript Files
